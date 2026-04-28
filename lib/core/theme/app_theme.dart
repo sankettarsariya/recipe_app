@@ -23,10 +23,10 @@ class AppTheme {
           ),
           iconTheme: IconThemeData(color: Color(0xFF1A1A1A)),
         ),
-        cardTheme: CardThemeData(
+        cardTheme: const CardThemeData(
           elevation: 0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16))),
           color: Colors.white,
         ),
         inputDecorationTheme: InputDecorationTheme(
@@ -60,11 +60,11 @@ class AppTheme {
             fontWeight: FontWeight.w700,
           ),
         ),
-        cardTheme: CardThemeData(
+        cardTheme: const CardThemeData(
           elevation: 0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          color: const Color(0xFF1E1E1E),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(16))),
+          color: Color(0xFF1E1E1E),
         ),
       );
 }

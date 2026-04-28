@@ -89,7 +89,6 @@ class NotificationService {
       hour, minute,
     );
 
-    // Agar time nikal gaya — kal ke liye schedule karo
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }

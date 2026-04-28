@@ -23,7 +23,7 @@ class AppTheme {
           ),
           iconTheme: IconThemeData(color: Color(0xFF1A1A1A)),
         ),
-        cardTheme: const CardTheme(
+        cardTheme: CardTheme(
           elevation: 0,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -60,7 +60,7 @@ class AppTheme {
             fontWeight: FontWeight.w700,
           ),
         ),
-        cardTheme: const CardTheme(
+        cardTheme: CardThemeData(
           elevation: 0,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(16))),

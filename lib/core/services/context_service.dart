@@ -2,7 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
-final contextServiceProvider = Provider<ContextService>((ref) => ContextService());
+final contextServiceProvider =
+    Provider<ContextService>((ref) => ContextService());
 
 // Country → Cuisine mapping for TheMealDB areas
 const _countryCuisineMap = {
@@ -102,6 +103,7 @@ class ContextService {
     final category = getMealCategory();
     final greeting = getMealGreeting();
     final area = await getCuisineFromLocation();
-    return MealContext(category: category, greeting: greeting, suggestedArea: area);
+    return MealContext(
+        category: category, greeting: greeting, suggestedArea: area);
   }
 }

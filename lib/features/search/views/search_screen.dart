@@ -19,13 +19,14 @@ class SearchScreen extends ConsumerWidget {
       backgroundColor: const Color(0xFFFAF9F6),
       body: Column(
         children: [
-
           // ── Search Header ─────────────────────────────────
           Container(
             color: const Color(0xFF1C1917),
             padding: EdgeInsets.only(
               top: MediaQuery.of(context).padding.top + 12,
-              left: 16, right: 16, bottom: 16,
+              left: 16,
+              right: 16,
+              bottom: 16,
             ),
             child: Row(
               children: [
@@ -33,7 +34,8 @@ class SearchScreen extends ConsumerWidget {
                 GestureDetector(
                   onTap: () => Navigator.pop(context),
                   child: Container(
-                    width: 40, height: 40,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(10),
@@ -70,20 +72,20 @@ class SearchScreen extends ConsumerWidget {
                             color: Colors.white.withOpacity(0.5), size: 20),
                         border: InputBorder.none,
                         contentPadding:
-                        const EdgeInsets.symmetric(vertical: 12),
+                            const EdgeInsets.symmetric(vertical: 12),
                         suffixIcon: query.isNotEmpty
                             ? GestureDetector(
-                          onTap: () => ref
-                              .read(searchQueryProvider.notifier)
-                              .state = '',
-                          child: Icon(Icons.close_rounded,
-                              color: Colors.white.withOpacity(0.5),
-                              size: 18),
-                        )
+                                onTap: () => ref
+                                    .read(searchQueryProvider.notifier)
+                                    .state = '',
+                                child: Icon(Icons.close_rounded,
+                                    color: Colors.white.withOpacity(0.5),
+                                    size: 18),
+                              )
                             : null,
                       ),
                       onChanged: (val) =>
-                      ref.read(searchQueryProvider.notifier).state = val,
+                          ref.read(searchQueryProvider.notifier).state = val,
                     ),
                   ),
                 ),
@@ -96,13 +98,13 @@ class SearchScreen extends ConsumerWidget {
             child: query.isEmpty
                 ? _EmptySearch()
                 : resultsAsync.when(
-              data: (meals) => meals.isEmpty
-                  ? _NoResults(query: query)
-                  : _ResultsGrid(meals: meals),
-              loading: () => _ShimmerGrid(),
-              error: (_, __) => _ErrorState(
-                  onRetry: () => ref.invalidate(searchResultsProvider)),
-            ),
+                    data: (meals) => meals.isEmpty
+                        ? _NoResults(query: query)
+                        : _ResultsGrid(meals: meals),
+                    loading: () => _ShimmerGrid(),
+                    error: (_, __) => _ErrorState(
+                        onRetry: () => ref.invalidate(searchResultsProvider)),
+                  ),
           ),
         ],
       ),
@@ -119,7 +121,8 @@ class _EmptySearch extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 90, height: 90,
+            width: 90,
+            height: 90,
             decoration: BoxDecoration(
               color: const Color(0xFFF0EBE3),
               borderRadius: BorderRadius.circular(24),
@@ -145,7 +148,8 @@ class _EmptySearch extends StatelessWidget {
           const SizedBox(height: 32),
           // Suggestion chips
           Wrap(
-            spacing: 8, runSpacing: 8,
+            spacing: 8,
+            runSpacing: 8,
             alignment: WrapAlignment.center,
             children: ['Chicken', 'Pasta', 'Indian', 'Dessert', 'Beef', 'Salad']
                 .map((s) => _SuggestionChip(label: s))
@@ -164,8 +168,7 @@ class _SuggestionChip extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () =>
-      ref.read(searchQueryProvider.notifier).state = label,
+      onTap: () => ref.read(searchQueryProvider.notifier).state = label,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
@@ -175,7 +178,8 @@ class _SuggestionChip extends ConsumerWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.04),
-              blurRadius: 6, offset: const Offset(0, 2),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
             ),
           ],
         ),
@@ -204,7 +208,8 @@ class _NoResults extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 90, height: 90,
+            width: 90,
+            height: 90,
             decoration: BoxDecoration(
               color: const Color(0xFFF0EBE3),
               borderRadius: BorderRadius.circular(24),
@@ -277,8 +282,8 @@ class _ResultsGrid extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => DetailScreen(
-                      mealId: meals[index].id, meal: meals[index]),
+                  builder: (_) =>
+                      DetailScreen(mealId: meals[index].id, meal: meals[index]),
                 ),
               ),
             ),
@@ -329,7 +334,8 @@ class _ErrorState extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 90, height: 90,
+            width: 90,
+            height: 90,
             decoration: BoxDecoration(
               color: Colors.red.shade50,
               borderRadius: BorderRadius.circular(24),

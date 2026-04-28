@@ -24,7 +24,8 @@ class CategoryChips extends ConsumerWidget {
               return ChoiceChip(
                 label: const Text('For you'),
                 selected: selected == null,
-                onSelected: (_) => ref.read(selectedCategoryProvider.notifier).state = null,
+                onSelected: (_) =>
+                    ref.read(selectedCategoryProvider.notifier).state = null,
               );
             }
             final cat = categories[index - 1];

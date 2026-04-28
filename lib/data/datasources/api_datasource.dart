@@ -20,9 +20,12 @@ class ApiDataSource {
   ApiDataSource(this._dio);
 
   Future<List<MealModel>> getMealsByCategory(String category) async {
-    final response = await _dio.get('/filter.php', queryParameters: {'c': category});
+    final response =
+        await _dio.get('/filter.php', queryParameters: {'c': category});
     final List meals = response.data['meals'] ?? [];
-    return meals.map((m) => MealModel.fromJson(m as Map<String, dynamic>)).toList();
+    return meals
+        .map((m) => MealModel.fromJson(m as Map<String, dynamic>))
+        .toList();
   }
 
   Future<MealModel?> getMealDetail(String id) async {
@@ -33,21 +36,29 @@ class ApiDataSource {
   }
 
   Future<List<MealModel>> searchMeals(String query) async {
-    final response = await _dio.get('/search.php', queryParameters: {'s': query});
+    final response =
+        await _dio.get('/search.php', queryParameters: {'s': query});
     final List meals = response.data['meals'] ?? [];
-    return meals.map((m) => MealModel.fromJson(m as Map<String, dynamic>)).toList();
+    return meals
+        .map((m) => MealModel.fromJson(m as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<CategoryModel>> getCategories() async {
     final response = await _dio.get('/categories.php');
     final List categories = response.data['categories'] ?? [];
-    return categories.map((c) => CategoryModel.fromJson(c as Map<String, dynamic>)).toList();
+    return categories
+        .map((c) => CategoryModel.fromJson(c as Map<String, dynamic>))
+        .toList();
   }
 
   Future<List<MealModel>> getMealsByArea(String area) async {
-    final response = await _dio.get('/filter.php', queryParameters: {'a': area});
+    final response =
+        await _dio.get('/filter.php', queryParameters: {'a': area});
     final List meals = response.data['meals'] ?? [];
-    return meals.map((m) => MealModel.fromJson(m as Map<String, dynamic>)).toList();
+    return meals
+        .map((m) => MealModel.fromJson(m as Map<String, dynamic>))
+        .toList();
   }
 
   Future<MealModel?> getRandomMeal() async {

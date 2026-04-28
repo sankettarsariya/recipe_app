@@ -4,7 +4,6 @@ import 'package:rxdart/rxdart.dart';
 import '../../../data/models/meal_model.dart';
 import '../../../data/repositories/meal_repository.dart';
 
-
 // Raw query input
 final searchQueryProvider = StateProvider<String>((ref) => '');
 
@@ -18,7 +17,9 @@ final _debouncedQueryProvider = StreamProvider<String>((ref) {
 
   ref.onDispose(controller.close);
 
-  return controller.stream.debounceTime(const Duration(milliseconds: 400)).distinct();
+  return controller.stream
+      .debounceTime(const Duration(milliseconds: 400))
+      .distinct();
 });
 
 // Search results provider

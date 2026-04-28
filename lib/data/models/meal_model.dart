@@ -31,7 +31,7 @@ class MealModel extends HiveObject {
   @HiveField(8)
   final String? youtubeUrl;
 
-   MealModel({
+  MealModel({
     required this.id,
     required this.name,
     this.category,
@@ -109,7 +109,8 @@ class MealModel extends HiveObject {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is MealModel && runtimeType == other.runtimeType && id == other.id;
+      identical(this, other) ||
+      other is MealModel && runtimeType == other.runtimeType && id == other.id;
 
   @override
   int get hashCode => id.hashCode;

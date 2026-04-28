@@ -41,7 +41,9 @@ class LocalDataSource {
     if (raw == null) return null;
     try {
       final List decoded = jsonDecode(raw) as List;
-      return decoded.map((m) => MealModel.fromJson(m as Map<String, dynamic>)).toList();
+      return decoded
+          .map((m) => MealModel.fromJson(m as Map<String, dynamic>))
+          .toList();
     } catch (_) {
       return null;
     }

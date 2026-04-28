@@ -24,7 +24,6 @@ class DetailScreen extends ConsumerWidget {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-
           // ── Hero Image AppBar ─────────────────────────────
           SliverAppBar(
             expandedHeight: 320,
@@ -39,7 +38,8 @@ class DetailScreen extends ConsumerWidget {
                   color: Colors.black.withOpacity(0.4),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.arrow_back_rounded, color: Colors.white, size: 20),
+                child: const Icon(Icons.arrow_back_rounded,
+                    color: Colors.white, size: 20),
               ),
             ),
             actions: [
@@ -65,7 +65,9 @@ class DetailScreen extends ConsumerWidget {
                   ),
                   // Bottom gradient
                   Positioned(
-                    bottom: 0, left: 0, right: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
                     child: Container(
                       height: 120,
                       decoration: BoxDecoration(
@@ -82,7 +84,8 @@ class DetailScreen extends ConsumerWidget {
                   ),
                   // Area + category tags bottom left
                   Positioned(
-                    bottom: 16, left: 16,
+                    bottom: 16,
+                    left: 16,
                     child: Row(
                       children: [
                         if (meal.area != null) _HeroTag(meal.area!),
@@ -105,10 +108,10 @@ class DetailScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     // ── Title block ────────────────────────
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18.0,vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18.0, vertical: 10),
                       child: Text(
                         m.name,
                         style: const TextStyle(
@@ -125,17 +128,18 @@ class DetailScreen extends ConsumerWidget {
                     Container(
                       decoration: const BoxDecoration(
                         color: Color(0xFFFAF9F6),
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(24)),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
                           // Drag handle
                           Center(
                             child: Container(
                               margin: const EdgeInsets.only(top: 12),
-                              width: 36, height: 4,
+                              width: 36,
+                              height: 4,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFE8E4DE),
                                 borderRadius: BorderRadius.circular(2),
@@ -146,25 +150,28 @@ class DetailScreen extends ConsumerWidget {
                           const SizedBox(height: 24),
 
                           // ── Ingredients ──────────────────
-                          _SectionLabel('INGREDIENTS', '${m.ingredients.length} items'),
+                          _SectionLabel(
+                              'INGREDIENTS', '${m.ingredients.length} items'),
                           const SizedBox(height: 14),
 
                           ...List.generate(m.ingredients.length, (i) {
                             final isLast = i == m.ingredients.length - 1;
                             return Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 20),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                               padding: const EdgeInsets.symmetric(vertical: 12),
                               decoration: BoxDecoration(
                                 border: !isLast
                                     ? const Border(
-                                    bottom: BorderSide(
-                                        color: Color(0xFFEFEBE4), width: 1))
+                                        bottom: BorderSide(
+                                            color: Color(0xFFEFEBE4), width: 1))
                                     : null,
                               ),
                               child: Row(
                                 children: [
                                   Container(
-                                    width: 8, height: 8,
+                                    width: 8,
+                                    height: 8,
                                     decoration: const BoxDecoration(
                                       color: Color(0xFFB5651D),
                                       shape: BoxShape.circle,
@@ -209,7 +216,8 @@ class DetailScreen extends ConsumerWidget {
                             _SectionLabel('INSTRUCTIONS', null),
                             const SizedBox(height: 14),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                               child: Text(
                                 m.instructions!,
                                 style: const TextStyle(
@@ -225,12 +233,15 @@ class DetailScreen extends ConsumerWidget {
                           // ── YouTube button ────────────────
                           if (m.youtubeUrl != null && m.youtubeUrl!.isNotEmpty)
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
                               child: GestureDetector(
-                                onTap: () => launchUrl(Uri.parse(m.youtubeUrl!)),
+                                onTap: () =>
+                                    launchUrl(Uri.parse(m.youtubeUrl!)),
                                 child: Container(
                                   width: double.infinity,
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
                                   decoration: BoxDecoration(
                                     color: const Color(0xFF1C1917),
                                     borderRadius: BorderRadius.circular(14),
@@ -279,18 +290,28 @@ class DetailScreen extends ConsumerWidget {
                       const SizedBox(height: 24),
                       Container(height: 14, width: 100, color: Colors.white),
                       const SizedBox(height: 16),
-                      ...List.generate(6, (_) => Padding(
-                        padding: const EdgeInsets.only(bottom: 12),
-                        child: Row(
-                          children: [
-                            Container(width: 8, height: 8, color: Colors.white),
-                            const SizedBox(width: 14),
-                            Expanded(child: Container(height: 14, color: Colors.white)),
-                            const SizedBox(width: 12),
-                            Container(width: 50, height: 26, color: Colors.white),
-                          ],
-                        ),
-                      )),
+                      ...List.generate(
+                          6,
+                          (_) => Padding(
+                                padding: const EdgeInsets.only(bottom: 12),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                        width: 8,
+                                        height: 8,
+                                        color: Colors.white),
+                                    const SizedBox(width: 14),
+                                    Expanded(
+                                        child: Container(
+                                            height: 14, color: Colors.white)),
+                                    const SizedBox(width: 12),
+                                    Container(
+                                        width: 50,
+                                        height: 26,
+                                        color: Colors.white),
+                                  ],
+                                ),
+                              )),
                     ],
                   ),
                 ),
@@ -310,13 +331,15 @@ class DetailScreen extends ConsumerWidget {
                   ),
                   child: const Row(
                     children: [
-                      Icon(Icons.wifi_off_rounded, color: Colors.orange, size: 22),
+                      Icon(Icons.wifi_off_rounded,
+                          color: Colors.orange, size: 22),
                       SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           'Offline — showing cached data',
                           style: TextStyle(
-                              fontWeight: FontWeight.w500, color: Color(0xFF78716C)),
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF78716C)),
                         ),
                       ),
                     ],
@@ -444,7 +467,8 @@ class _FavButtonState extends ConsumerState<_FavButton>
       child: GestureDetector(
         onTap: _toggle,
         child: Container(
-          width: 38, height: 38,
+          width: 38,
+          height: 38,
           margin: const EdgeInsets.only(top: 4),
           decoration: BoxDecoration(
             color: isFav

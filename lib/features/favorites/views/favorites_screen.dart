@@ -19,7 +19,6 @@ class FavoritesScreen extends ConsumerWidget {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-
           // ── Header ───────────────────────────────────────
           SliverAppBar(
             pinned: true,
@@ -50,7 +49,8 @@ class FavoritesScreen extends ConsumerWidget {
             actions: [
               Container(
                 margin: const EdgeInsets.only(right: 16),
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: const Color(0xFFB5651D),
                   borderRadius: BorderRadius.circular(20),
@@ -75,7 +75,8 @@ class FavoritesScreen extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: 90, height: 90,
+                      width: 90,
+                      height: 90,
                       decoration: BoxDecoration(
                         color: const Color(0xFFF0EBE3),
                         borderRadius: BorderRadius.circular(24),
@@ -106,7 +107,7 @@ class FavoritesScreen extends ConsumerWidget {
               ),
             )
           else
-          // ── List ─────────────────────────────────────────
+            // ── List ─────────────────────────────────────────
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
               sliver: SliverList.separated(
@@ -184,19 +185,20 @@ class _FavoriteItemState extends ConsumerState<_FavoriteItem>
         ),
         child: Row(
           children: [
-
             // ── Thumbnail ──────────────────────────────────
             ClipRRect(
-              borderRadius: const BorderRadius.horizontal(
-                  left: Radius.circular(18)),
+              borderRadius:
+                  const BorderRadius.horizontal(left: Radius.circular(18)),
               child: Hero(
                 tag: 'meal-${meal.id}',
                 child: CachedNetworkImage(
                   imageUrl: meal.thumbnailUrl ?? '',
-                  width: 100, height: 100,
+                  width: 100,
+                  height: 100,
                   fit: BoxFit.cover,
                   errorWidget: (_, __, ___) => Container(
-                    width: 100, height: 100,
+                    width: 100,
+                    height: 100,
                     color: const Color(0xFFF0EBE3),
                     child: const Icon(Icons.broken_image_rounded,
                         color: Color(0xFFB5651D)),
@@ -268,7 +270,8 @@ class _FavoriteItemState extends ConsumerState<_FavoriteItem>
                 child: GestureDetector(
                   onTap: _toggleFav,
                   child: Container(
-                    width: 36, height: 36,
+                    width: 36,
+                    height: 36,
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFF0F0),
                       borderRadius: BorderRadius.circular(10),

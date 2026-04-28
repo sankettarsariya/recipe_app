@@ -4,8 +4,6 @@ import '../../../core/services/context_service.dart';
 import '../../../data/models/meal_model.dart';
 import '../../../data/repositories/meal_repository.dart';
 
-
-
 // ── Context ──────────────────────────────────────────────────
 final mealContextProvider = FutureProvider<MealContext>((ref) async {
   final contextService = ref.watch(contextServiceProvider);

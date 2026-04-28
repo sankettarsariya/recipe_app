@@ -49,20 +49,26 @@ class MealCard extends ConsumerWidget {
                       ),
                       errorWidget: (_, __, ___) => Container(
                         color: Colors.grey.shade100,
-                        child: const Icon(Icons.broken_image_rounded, color: Colors.grey),
+                        child: const Icon(Icons.broken_image_rounded,
+                            color: Colors.grey),
                       ),
                     ),
                   ),
                   // Gradient overlay
                   Positioned(
-                    bottom: 0, left: 0, right: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
                     child: Container(
                       height: 50,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
-                          colors: [Colors.black.withOpacity(0.35), Colors.transparent],
+                          colors: [
+                            Colors.black.withOpacity(0.35),
+                            Colors.transparent
+                          ],
                         ),
                       ),
                     ),
@@ -70,21 +76,26 @@ class MealCard extends ConsumerWidget {
                   // Area tag
                   if (meal.area != null)
                     Positioned(
-                      bottom: 8, left: 8,
+                      bottom: 8,
+                      left: 8,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 3),
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.45),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(meal.area!,
                             style: const TextStyle(
-                                color: Colors.white, fontSize: 10, fontWeight: FontWeight.w500)),
+                                color: Colors.white,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500)),
                       ),
                     ),
                   // Favorite button
                   Positioned(
-                    top: 8, right: 8,
+                    top: 8,
+                    right: 8,
                     child: _FavoriteButton(meal: meal),
                   ),
                 ],
@@ -101,8 +112,10 @@ class MealCard extends ConsumerWidget {
                     Text(
                       meal.name,
                       style: const TextStyle(
-                        color: Colors.black,
-                          fontWeight: FontWeight.w700, fontSize: 13, height: 1.2),
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 13,
+                          height: 1.2),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -176,13 +189,13 @@ class _FavoriteButtonState extends ConsumerState<_FavoriteButton>
       child: ScaleTransition(
         scale: _scale,
         child: Container(
-          width: 34, height: 34,
+          width: 34,
+          height: 34,
           decoration: BoxDecoration(
             color: isFav ? Colors.red.shade50 : Colors.white.withOpacity(0.9),
             shape: BoxShape.circle,
             boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.15), blurRadius: 6)
+              BoxShadow(color: Colors.black.withOpacity(0.15), blurRadius: 6)
             ],
           ),
           child: Icon(

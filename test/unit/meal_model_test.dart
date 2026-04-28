@@ -9,7 +9,8 @@ void main() {
       'strCategory': 'Chicken',
       'strArea': 'Japanese',
       'strInstructions': 'Preheat oven to 350° F.',
-      'strMealThumb': 'https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg',
+      'strMealThumb':
+          'https://www.themealdb.com/images/media/meals/wvpsxx1468256321.jpg',
       'strYoutube': 'https://www.youtube.com/watch?v=4aZr5hZXP_s',
       'strIngredient1': 'soy sauce',
       'strMeasure1': '3/4 cup',

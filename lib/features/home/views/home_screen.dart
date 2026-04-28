@@ -27,15 +27,13 @@ class HomeScreen extends ConsumerWidget {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-
           // ── HEADER ─────────────────────────────────────────
           SliverToBoxAdapter(
             child: _ClassicHeader(contextAsync: contextAsync, ref: ref),
           ),
 
           // ── OFFLINE ────────────────────────────────────────
-          if (!isOnline)
-            const SliverToBoxAdapter(child: OfflineBanner()),
+          if (!isOnline) const SliverToBoxAdapter(child: OfflineBanner()),
 
           // ── DIVIDER + SECTION ──────────────────────────────
           SliverToBoxAdapter(
@@ -79,7 +77,8 @@ class HomeScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(24, 28, 24, 12),
               child: Row(
                 children: [
-                  Container(width: 3, height: 18, color: const Color(0xFFB5651D)),
+                  Container(
+                      width: 3, height: 18, color: const Color(0xFFB5651D)),
                   const SizedBox(width: 10),
                   const Text(
                     'Curated for You',
@@ -129,7 +128,8 @@ class _ClassicHeader extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      width: 32, height: 32,
+                      width: 32,
+                      height: 32,
                       decoration: BoxDecoration(
                         color: const Color(0xFF1C1917),
                         borderRadius: BorderRadius.circular(8),
@@ -154,14 +154,18 @@ class _ClassicHeader extends StatelessWidget {
                   children: [
                     _NavIcon(
                       icon: Icons.search_rounded,
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const SearchScreen())),
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const SearchScreen())),
                     ),
                     const SizedBox(width: 4),
                     _NavIcon(
                       icon: Icons.favorite_border_rounded,
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const FavoritesScreen())),
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const FavoritesScreen())),
                     ),
                   ],
                 ),
@@ -180,7 +184,8 @@ class _ClassicHeader extends StatelessWidget {
                 children: [
                   // Greeting pill
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                     decoration: BoxDecoration(
                       color: const Color(0xFFF0EBE3),
                       borderRadius: BorderRadius.circular(20),
@@ -252,14 +257,18 @@ class _ClassicHeader extends StatelessWidget {
               loading: () => Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(height: 30, width: 140,
+                  Container(
+                      height: 30,
+                      width: 140,
                       decoration: BoxDecoration(
                           color: const Color(0xFFF0EBE3),
                           borderRadius: BorderRadius.circular(20))),
                   const SizedBox(height: 14),
-                  Container(height: 38, width: 260, color: const Color(0xFFE8E4DE)),
+                  Container(
+                      height: 38, width: 260, color: const Color(0xFFE8E4DE)),
                   const SizedBox(height: 8),
-                  Container(height: 38, width: 200, color: const Color(0xFFE8E4DE)),
+                  Container(
+                      height: 38, width: 200, color: const Color(0xFFE8E4DE)),
                 ],
               ),
               error: (_, __) => const Text(
@@ -283,19 +292,32 @@ class _ClassicHeader extends StatelessWidget {
 
   String _getMealEmoji(String category) {
     switch (category.toLowerCase()) {
-      case 'breakfast': return '🌅';
-      case 'chicken': case 'beef': case 'lamb': return '☀️';
-      case 'dessert': return '🌙';
-      default: return '🍽️';
+      case 'breakfast':
+        return '🌅';
+      case 'chicken':
+      case 'beef':
+      case 'lamb':
+        return '☀️';
+      case 'dessert':
+        return '🌙';
+      default:
+        return '🍽️';
     }
   }
 
   String _getMealLabel(String category) {
     switch (category.toLowerCase()) {
-      case 'breakfast': return 'breakfast';
-      case 'chicken': case 'beef': case 'lamb': case 'pork': return 'lunch';
-      case 'dessert': return 'dessert';
-      default: return 'dinner';
+      case 'breakfast':
+        return 'breakfast';
+      case 'chicken':
+      case 'beef':
+      case 'lamb':
+      case 'pork':
+        return 'lunch';
+      case 'dessert':
+        return 'dessert';
+      default:
+        return 'dinner';
     }
   }
 }
@@ -337,7 +359,8 @@ class _NavIcon extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 42, height: 42,
+        width: 42,
+        height: 42,
         decoration: BoxDecoration(
           color: const Color(0xFFF0EBE3),
           borderRadius: BorderRadius.circular(12),

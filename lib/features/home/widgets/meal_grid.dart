@@ -22,19 +22,25 @@ class MealGrid extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 80, height: 80,
+                    width: 80,
+                    height: 80,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.no_food_rounded, size: 36, color: Colors.grey.shade400),
+                    child: Icon(Icons.no_food_rounded,
+                        size: 36, color: Colors.grey.shade400),
                   ),
                   const SizedBox(height: 16),
                   Text('No recipes found',
-                      style: TextStyle(color: Colors.grey.shade600, fontSize: 16, fontWeight: FontWeight.w600)),
+                      style: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600)),
                   const SizedBox(height: 6),
                   Text('Try a different category',
-                      style: TextStyle(color: Colors.grey.shade400, fontSize: 13)),
+                      style:
+                          TextStyle(color: Colors.grey.shade400, fontSize: 13)),
                 ],
               ),
             ),
@@ -52,8 +58,11 @@ class MealGrid extends ConsumerWidget {
             itemCount: meals.length,
             itemBuilder: (context, index) => MealCard(
               meal: meals[index],
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => DetailScreen(mealId: meals[index].id, meal: meals[index]))),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => DetailScreen(
+                          mealId: meals[index].id, meal: meals[index]))),
             ),
           ),
         );
@@ -77,9 +86,12 @@ class MealGrid extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                width: 80, height: 80,
-                decoration: BoxDecoration(color: Colors.red.shade50, shape: BoxShape.circle),
-                child: Icon(Icons.wifi_off_rounded, size: 36, color: Colors.red.shade300),
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                    color: Colors.red.shade50, shape: BoxShape.circle),
+                child: Icon(Icons.wifi_off_rounded,
+                    size: 36, color: Colors.red.shade300),
               ),
               const SizedBox(height: 16),
               const Text('Could not load recipes',
@@ -92,8 +104,10 @@ class MealGrid extends ConsumerWidget {
                 icon: const Icon(Icons.refresh_rounded, size: 18),
                 label: const Text('Try again'),
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
                 onPressed: () => ref.invalidate(filteredMealsProvider),
               ),
@@ -138,7 +152,10 @@ class _ShimmerCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(height: 12, width: double.infinity, color: Colors.white),
+                    Container(
+                        height: 12,
+                        width: double.infinity,
+                        color: Colors.white),
                     const SizedBox(height: 6),
                     Container(height: 10, width: 80, color: Colors.white),
                   ],

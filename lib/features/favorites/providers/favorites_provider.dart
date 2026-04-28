@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/meal_model.dart';
 import '../../../data/repositories/meal_repository.dart';
 
-
 class FavoritesNotifier extends Notifier<List<MealModel>> {
   @override
   List<MealModel> build() {

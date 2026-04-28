@@ -29,15 +29,22 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     _fadeTop = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _ctrl, curve: const Interval(0.0, 0.5, curve: Curves.easeOut)),
+      CurvedAnimation(
+          parent: _ctrl,
+          curve: const Interval(0.0, 0.5, curve: Curves.easeOut)),
     );
 
     _fadeBottom = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _ctrl, curve: const Interval(0.4, 0.9, curve: Curves.easeOut)),
+      CurvedAnimation(
+          parent: _ctrl,
+          curve: const Interval(0.4, 0.9, curve: Curves.easeOut)),
     );
 
-    _slideUp = Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
-      CurvedAnimation(parent: _ctrl, curve: const Interval(0.3, 0.9, curve: Curves.easeOutCubic)),
+    _slideUp =
+        Tween<Offset>(begin: const Offset(0, 0.3), end: Offset.zero).animate(
+      CurvedAnimation(
+          parent: _ctrl,
+          curve: const Interval(0.3, 0.9, curve: Curves.easeOutCubic)),
     );
 
     _ctrl.forward();
@@ -70,10 +77,10 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: const Color(0xFF1C1917),
       body: Stack(
         children: [
-
           // ── Decorative corner lines ──────────────────────
           Positioned(
-            top: 0, left: 0,
+            top: 0,
+            left: 0,
             child: FadeTransition(
               opacity: _fadeTop,
               child: CustomPaint(
@@ -83,7 +90,8 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ),
           Positioned(
-            bottom: 0, right: 0,
+            bottom: 0,
+            right: 0,
             child: FadeTransition(
               opacity: _fadeTop,
               child: CustomPaint(
@@ -98,14 +106,14 @@ class _SplashScreenState extends State<SplashScreen>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-
                 // Logo block
                 FadeTransition(
                   opacity: _fadeTop,
                   child: Column(
                     children: [
                       Container(
-                        width: 72, height: 72,
+                        width: 72,
+                        height: 72,
                         decoration: BoxDecoration(
                           border: Border.all(
                               color: const Color(0xFFB5651D), width: 1.5),
@@ -137,7 +145,8 @@ class _SplashScreenState extends State<SplashScreen>
                 FadeTransition(
                   opacity: _fadeTop,
                   child: Container(
-                    width: 40, height: 1.5,
+                    width: 40,
+                    height: 1.5,
                     color: const Color(0xFFB5651D),
                   ),
                 ),
@@ -166,7 +175,9 @@ class _SplashScreenState extends State<SplashScreen>
 
           // ── Bottom credit ─────────────────────────────────
           Positioned(
-            bottom: 48, left: 0, right: 0,
+            bottom: 48,
+            left: 0,
+            right: 0,
             child: FadeTransition(
               opacity: _fadeBottom,
               child: const Column(
@@ -233,7 +244,8 @@ class _LoadingDotsState extends State<_LoadingDots>
             final opacity = t < 0.5 ? t * 2 : (1 - t) * 2;
             return Container(
               margin: const EdgeInsets.symmetric(horizontal: 3),
-              width: 5, height: 5,
+              width: 5,
+              height: 5,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(181, 101, 29, opacity.clamp(0.2, 1.0)),
                 shape: BoxShape.circle,

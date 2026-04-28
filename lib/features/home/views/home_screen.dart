@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/services/connectivity_service.dart';
-import '../../../core/services/notification_service.dart';
 import '../../favorites/views/favorites_screen.dart';
 import '../../search/views/search_screen.dart';
 import '../providers/home_providers.dart';
